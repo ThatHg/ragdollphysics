@@ -17,6 +17,8 @@ namespace ragdoll
 		private static double			_ragdoll_release_time	= 0;
 		private static double			_fps_timer				= 0;
 		private static double			_fps					= 0;
+		private static double			_avg_fps				= 0;
+		private static int				_fps_qty				= 0;
 
 		private static void draw_info()
 		{
@@ -28,8 +30,17 @@ namespace ragdoll
  R-MouseButton: Lock particle to background
  L-MouseButton: Drag nearest ragdoll
 
- FPS:		" + _fps + @"
+ Current FPS:	" + _fps + @"
+ Average FPS:	" + average_fps(_fps) + @"
  Ragdoll Count:	" + _skeletons.Count, Color.Chocolate);
+		}
+
+		public static double average_fps(double fps)
+		{
+			++_fps_qty;
+			_avg_fps = Math.Round(_avg_fps + (fps - _avg_fps) / _fps_qty, 2);
+
+			return _avg_fps;
 		}
 
 		public static void reset()
@@ -88,7 +99,8 @@ namespace ragdoll
 					}
 					if(game.Keyboard[Key.A] && _active_time < DateTime.Now.Ticks)
 					{
-						add_doll();
+						for (int i = 0; i < 20; ++i)
+							add_doll();
 						if(_active_time < DateTime.Now.Ticks + 2000000)
 							_active_time = DateTime.Now.Ticks + 2000000;
 					}
