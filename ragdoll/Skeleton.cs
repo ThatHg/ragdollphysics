@@ -292,7 +292,7 @@ namespace ragdoll
 			for(int i = 0; i < FORCES; ++i)
 			{
 				if(_forces[i] != null)
-					GraphicsManager.draw_line(_pos[i]._pos, _pos[i]._pos + _forces[i], Color.Indigo, 3);
+					GraphicsManager.draw_line(_pos[i]._pos, _pos[i]._pos + _forces[i], Color.Cyan, 3);
 			}
 		}
 

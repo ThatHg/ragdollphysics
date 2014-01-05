@@ -20,7 +20,16 @@ namespace ragdoll
 
 		private static void draw_info()
 		{
-			GraphicsManager.draw_text(new Vector2D(0,0),"F: Show forces \t B: Show bones \t G: Toggle Gfx \t C: Climbing mode \t M: Christmas mode \nP: Pause \t R: Reset \t A: Add doll \t Esc: Exit\n\nFPS:\t\t" + _fps + "\nRagdoll Count:\t" + _skeletons.Count, Color.Chocolate);
+			GraphicsManager.draw_text(new Vector2D(0,0),
+@" 
+ F: Show forces		B: Show bones	G: Toggle Gfx	C: Climbing mode	M: Christmas mode
+ P: Pause		R: Reset		A: Add doll	Esc: Exit
+
+ R-MouseButton: Lock particle to background
+ L-MouseButton: Drag nearest ragdoll
+
+ FPS:		" + _fps + @"
+ Ragdoll Count:	" + _skeletons.Count, Color.Chocolate);
 		}
 
 		public static void reset()
