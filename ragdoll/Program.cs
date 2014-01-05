@@ -15,10 +15,12 @@ namespace ragdoll
 		private static bool				_pause					= false;
 		private static double			_active_time			= 0;
 		private static double			_ragdoll_release_time	= 0;
+
+		// For fps calculations
 		private static double			_fps_timer				= 0;
-		private static double			_fps					= 0;
-		private static double			_avg_fps				= 0;
-		private static int				_fps_qty				= 0;
+		private static double			_fps					= 60;
+		private static double			_avg_fps				= 60;
+		private static double			_alpha					= 0.97;	// Decayrate of avg fps
 
 		private static void draw_info()
 		{
@@ -37,20 +39,20 @@ namespace ragdoll
 
 		public static double average_fps(double fps)
 		{
-			++_fps_qty;
-			_avg_fps = Math.Round(_avg_fps + (fps - _avg_fps) / _fps_qty, 2);
-
+			_avg_fps = Math.Round(_alpha * _avg_fps + (1.0 - _alpha) * fps, 2);
 			return _avg_fps;
 		}
 
 		public static void reset()
 		{
 			_skeletons.Clear();
-			_snow = null;
+			_snow		= null;
+			
 			GC.Collect();
 			GC.WaitForFullGCComplete();
+
 			_skeletons.Add(new Skeleton());
-			_snow	= new SnowGenerator();
+			_snow = new SnowGenerator();
 		}
 
 		public static void add_doll()
