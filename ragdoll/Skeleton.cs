@@ -109,18 +109,16 @@ namespace ragdoll
 
 		private void update_constaints(int iterations)
 		{
-			// Keeps skeleton inside window
 			for(int j = 0; j < iterations; ++j)
 			{
-				// Keep bone lengts and constrain bendiness
+				// Keep bone lengts and restrain freedom of movement
 				int NUM_CONSTR = _constraints.Length;
 				for(int i = NUM_CONSTR - 1; i >= 0; --i)
 				{
 					Point		point_a	= _pos[_constraints[i]._point_a];
 					Point		point_b	= _pos[_constraints[i]._point_b];
 
-					// Just skip til next constraint if
-					// both inv_masses are 0
+					// Just skip to next constraint if both inv_masses are 0
 					if(point_a._inv_mass + point_b._inv_mass == 0)
 						continue;
 

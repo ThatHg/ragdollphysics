@@ -101,8 +101,7 @@ namespace ragdoll
 					}
 					if(game.Keyboard[Key.A] && _active_time < DateTime.Now.Ticks)
 					{
-						for (int i = 0; i < 20; ++i)
-							add_doll();
+						add_doll();
 						if(_active_time < DateTime.Now.Ticks + 2000000)
 							_active_time = DateTime.Now.Ticks + 2000000;
 					}
