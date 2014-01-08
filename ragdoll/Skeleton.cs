@@ -192,8 +192,9 @@ namespace ragdoll
 			// Head
 			GraphicsManager.draw_point(_pos[0]._pos, Color.Khaki, 50);
 
+			int neck_width = 10;
 			// Neck
-			GraphicsManager.draw_line(_pos[0]._pos, _pos[1]._pos, Color.Khaki, 50);
+			GraphicsManager.draw_line(_pos[0]._pos, _pos[1]._pos, Color.Khaki, neck_width);
 
 			Vector2D moues_dir = mouse - _pos[0]._pos;
 			Vector2D dir = _pos[1]._pos - _pos[0]._pos;
@@ -230,32 +231,36 @@ namespace ragdoll
 			// Mouth
 			GraphicsManager.draw_line(mouth_left, mouth_right, Color.Black, 2);
 
+
+			int arm_width = 10;
 			// Left upper arm
-			GraphicsManager.draw_line(_pos[3]._pos, _pos[6]._pos, Color.Black, 50);
+			GraphicsManager.draw_line(_pos[3]._pos, _pos[6]._pos, Color.Black, arm_width);
 
 			// Right upper arm
-			GraphicsManager.draw_line(_pos[2]._pos, _pos[5]._pos, Color.Black, 50);
+			GraphicsManager.draw_line(_pos[2]._pos, _pos[5]._pos, Color.Black, arm_width);
 
 			// Left lower arm
-			GraphicsManager.draw_line(_pos[6]._pos, _pos[8]._pos, Color.Black, 50);
+			GraphicsManager.draw_line(_pos[6]._pos, _pos[8]._pos, Color.Black, arm_width);
 
 			// Right lower arm
-			GraphicsManager.draw_line(_pos[5]._pos, _pos[7]._pos, Color.Black, 50);
+			GraphicsManager.draw_line(_pos[5]._pos, _pos[7]._pos, Color.Black, arm_width);
 
 			// Waist
-			GraphicsManager.draw_line(_pos[11]._pos, _pos[12]._pos, Color.Red, 50);
+			GraphicsManager.draw_line(_pos[11]._pos, _pos[12]._pos, Color.Red, arm_width);
 
+
+			int leg_width = 10;
 			// Left upper leg
-			GraphicsManager.draw_line(_pos[12]._pos, _pos[14]._pos, Color.Red, 50);
+			GraphicsManager.draw_line(_pos[12]._pos, _pos[14]._pos, Color.Red, leg_width);
 
 			// Right upper leg
-			GraphicsManager.draw_line(_pos[11]._pos, _pos[13]._pos, Color.Red, 50);
+			GraphicsManager.draw_line(_pos[11]._pos, _pos[13]._pos, Color.Red, leg_width);
 
 			// Left lower leg
-			GraphicsManager.draw_line(_pos[14]._pos, _pos[9]._pos, Color.Red, 50);
+			GraphicsManager.draw_line(_pos[14]._pos, _pos[9]._pos, Color.Red, leg_width);
 
 			// Right lower leg
-			GraphicsManager.draw_line(_pos[13]._pos, _pos[15]._pos, Color.Red, 50);
+			GraphicsManager.draw_line(_pos[13]._pos, _pos[15]._pos, Color.Red, leg_width);
 
 			// Feets
 			GraphicsManager.draw_point(_pos[9]._pos, Color.Khaki, 20);
